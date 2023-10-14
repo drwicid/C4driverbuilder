@@ -74,14 +74,14 @@ def parse_xml_file(file_name,drivername): #probably can cut this down to one lin
     stext="experience-button-scenario" #driver name used for files
     stext2="Scenario - Experience Button" # driver name that is hard coded - may need to change to make it more flexible
     rtext=drivername
-    fin = open(file_name, "rt")
+    fin = open(file_name, "rt", encoding="utf-8")
     data = fin.read() #read file into data variable
     data = data.replace(stext, rtext) #replaces the names of all of the icon files
     data = data.replace(stext2, rtext) #replaces the name of the driver
     data=re.sub(xml1,c,data,flags=re.DOTALL) #replaces the created date
     data=re.sub(xml2,m,data,flags=re.DOTALL) #replaces the modified date
     fin.close() #close xml file that was read
-    fin = open(file_name, "wt") #open xml file to write
+    fin = open(file_name, "wt", encoding="utf-8") #open xml file to write
     fin.write(data) #write updated xml file
     fin.close()
 
